@@ -4,10 +4,10 @@ const { MongoClient } = require('mongodb');
 const app = express();
 
 // Ruta para obtener todos los documentos de una colección
-app.get('/entity/:nombre', async (req, res) => {
+app.get('/entity/:id', async (req, res) => {
   try {
-    const entityName = req.params.nombre;
-
+    const idEntidad = req.params.id;
+    const nombreColeccion = `entity-x002fxffff${idEntidad}xffffAirQualityObserved`
     // Conexión a la base de datos local de MongoDB
     const client = await MongoClient.connect('mongodb://localhost:27017', {
       useUnifiedTopology: true
@@ -15,7 +15,7 @@ app.get('/entity/:nombre', async (req, res) => {
     const db = client.db('draco-openiot');
 
     // Obtener todos los documentos de la colección
-    const documentos = await db.collection(entityName).find().toArray();
+    const documentos = await db.collection(nombreColeccion).find().toArray();
 
     res.json(documentos);
   } catch (error) {
