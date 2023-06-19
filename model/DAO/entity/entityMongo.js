@@ -2,7 +2,7 @@ import { CnxMongoDB } from "../../cnxMongoDB.js"
 
 export class EntityMongo {
     getCollection = async collectionName => {
-        if (!CnxMongoDB.connection) return {}
+        if (!CnxMongoDB.connection) return []
         try {
             return await CnxMongoDB.db.collection(collectionName)
             .find().sort({recvTime:-1}).toArray()

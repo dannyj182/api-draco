@@ -6,7 +6,7 @@ export class EntityService {
         this.entityModel = EntityFactoryDAO.get(config.DB)
     }
     getCollection = async (id) => {
-        const collectionName = `entity-x002fxffff${id}xffffAirQualityObserved`
+        const collectionName = `entity-x002fxffff${id}xffff${config.ENTITY_TYPE}`
         return await this.entityModel.getCollection(collectionName)
     }
 }
