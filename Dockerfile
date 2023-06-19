@@ -18,6 +18,7 @@ ENV PORT=8081
 ENV URI='mongodb://localhost:27017'
 ENV DB='MONGO'
 ENV BASE='draco-openiot'
+ENV ENTITY_TYPE='AirQualityObserved'
 
 # Expone el puerto que usa tu aplicación
 EXPOSE $PORT
